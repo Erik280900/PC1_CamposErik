@@ -5,7 +5,7 @@ from .forms import PlaylistForm, SongForm
 # Vista para ver todas las playlists
 def playlist_list(request):
     playlists = Playlist.objects.all()
-    return render(request, 'playlist_list.html', {'playlists': playlists})
+    return render(request, 'playlists/playlist_list.html', {'playlists': playlists})
 
 # Vista para crear una nueva playlist
 def playlist_create(request):
@@ -16,7 +16,7 @@ def playlist_create(request):
             return redirect('playlist_list')  # Redirige a la lista de playlists
     else:
         form = PlaylistForm()
-    return render(request, 'playlist_form.html', {'form': form})
+    return render(request, 'playlists/playlist_form.html', {'form': form})
 
 # Vista para ver los detalles de una playlist
 def playlist_detail(request, pk):
@@ -32,4 +32,4 @@ def song_create(request):
             return redirect('playlist_list')  # Redirige a la lista de playlists
     else:
         form = SongForm()
-    return render(request, 'song_form.html', {'form': form})
+    return render(request, 'playlists/song_form.html', {'form': form})
